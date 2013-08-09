@@ -1,0 +1,14 @@
+﻿<Window x:Class="DataBindingDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="120" Width="226">
+    <Grid>
+        <StackPanel Margin="5" Button.Click="ButtonClick">
+
+            <Button>SingleEmployee</Button>
+            <Button>EmployeesList</Button>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
