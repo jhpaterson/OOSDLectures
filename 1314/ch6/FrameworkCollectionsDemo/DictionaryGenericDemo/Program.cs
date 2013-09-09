@@ -22,14 +22,26 @@ namespace DictionaryGenericDemo
             if (dict.ContainsKey("Chai"))
             {
                 // get item by key
-                double val = dict["Chai"];
-                Console.WriteLine("Found Chai, price: {0:c}.", val);
+                double val1 = dict["Chai"];
+                Console.WriteLine("Found Chai, price: {0:c}.\n", val1);
 
                 dict.Remove("Chai");
             }
 
             PrintEntries(dict);
 
+            // error if you try to get a key which is not present
+            // double val = dict["stuff"];
+
+            // get safely - use ContainsKey as above or use TryGetValue
+            // uses out parameter to set value at same time as checking for key
+            double val2;
+            dict.TryGetValue("stuff", out val2);                 // not found, value is null or default but no error
+            Console.WriteLine("Stuff, price: {0:c}.\n", val2);
+
+            double val3;
+            dict.TryGetValue("Aniseed Syrup", out val3);
+            Console.WriteLine("Aniseed Syrup, price: {0:c}.\n", val3);
         }
 
         public static void PrintEntries(Dictionary<string,double> myDictionary)
