@@ -8,6 +8,7 @@ namespace SimpleExceptions
     {
         public void SaveInfo1(string data, string filename)
         {
+            // file doesn't exist, so trying to open it like this will cause exception
             FileStream fs = File.Open(filename, FileMode.Open);
             StreamWriter sw = new StreamWriter(fs);
             sw.Write(data);
@@ -97,6 +98,7 @@ namespace SimpleExceptions
 
         public void SaveInfo5(string data, string filename)
         {
+            // this creates file if it doesn't exist, so opening it won't cause an exception
             FileStream fs = File.Open(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             sw.Write(data);
